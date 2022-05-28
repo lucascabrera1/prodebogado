@@ -10,9 +10,10 @@ router.use(logger)
 router.use(morgan('dev'))
 router.use(express.static('public'))
 
+
 //settings
 router.set('appName', 'prodebogado')
-router.set('port', 4500)
+router.set('port', 4501)
 router.set('view engine', 'ejs')
 
 router.listen(router.get('port'), () =>{
@@ -20,7 +21,7 @@ router.listen(router.get('port'), () =>{
 })
 
 router.all('/pronosticos', (req, res) => {
-    console.log("paso por aca")
+    console.log("paso por router.all")
     res.send("terminado")
 })
 
@@ -61,32 +62,7 @@ router.post('/register', (req, res) => {
     res.end("usuario registrado")
 }) //se registra
 
-router.post('/pronosticos', (req, res) => {
-    res.send('<h2>pronosticos enviados!</h2>')
-}) //envia sus pronosticos
 
-router.put('/pronosticos/:id', (req, res) => {
-    console.log(req.body)
-    console.log(req.params)
-    res.send(`aqui puede modificar el pronostico ${req.params.id}`)
-}) //puede reenviar el pronostico de un partido
-
-
-router.get('/mispronosticos/:idfecha', (req, res) => {
-    console.log(req.body)
-    console.log(req.params)
-    res.send('sus pronosticos de la fecha')
-})//pronosticos de la fecha
-
-router.get('/pronosticospartido/:idpartido', (req, res ) => {
-    console.log(req.params)
-    res.send(`aqui puedo ver que pronosticaron otros resultados para el partido: ${req.params.idpartido} ` )
-})
-
-router.get('/pronosticosparticipante/:idparticipante', (req, res) => {
-    console.log(req.params)
-    res.send(`aqui puedo consultar los pronosticos de la fecha del participante ${req.params.idparticipante}`)
-})
 
 
 

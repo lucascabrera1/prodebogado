@@ -2,22 +2,26 @@
 
 const obtenerMisPronosticos = (req, res) => {
     res.send("obtengo mis pronosticos de una fecha")
+    console.log("obtengo mis pronosticos de una fecha")
 }
 
 const obtenerPronosticosDeUnPartido = (req, res) => {
     res.send("obtengo los pronosticos de los demas participantes para un determinado partido")
+    console.log("obtengo los pronosticos de los demas participantes para un determinado partido")
 }
 
 const obtenerPronosticosDeOtroParticipanteDeUnaDeterminadaFecha = (req, res) => {
     res.send("obtengo los pronosticos de otro participante segun la fecha")
+    console.log("obtengo los pronosticos de otro participante segun la fecha")
 }
 
 const obtenerResultadosDeOtroParticipante = (req, res) => {
     res.send("obtengo los pronosticos de todas las fechas de otro partipante")
+    console.log("obtengo los pronosticos de todas las fechas de otro partipante")
 }
 
 const subirPronostico = (req, res) => {
-    console.log(req.body)
+    console.log("subi pronostico/s")
     res.send("subo el pronostico de un partido")
 }
 
@@ -26,7 +30,7 @@ const modificarPronostico = (req, res) => {
     res.send("modifico un pronostico")
 }
 
-export default {
+module.exports =  {
     obtenerMisPronosticos,
     obtenerPronosticosDeOtroParticipanteDeUnaDeterminadaFecha,
     obtenerPronosticosDeUnPartido,
