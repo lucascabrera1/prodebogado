@@ -3,4 +3,8 @@ const listardescensos = (req, res) => {
     console.log("descensos")
 }
 
-module.exports = {listardescensos}
+const cargardescensos = (req, res) => {
+    res.send("cargo descensos anteriores al uso de la aplicacion")
+}
+
+module.exports = {listardescensos, cargardescensos}

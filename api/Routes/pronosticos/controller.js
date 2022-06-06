@@ -1,5 +1,6 @@
 //logica que va a reaccionar a la request
 
+
 const obtenerMisPronosticos = (req, res) => {
     res.send("obtengo mis pronosticos de una fecha")
     console.log("obtengo mis pronosticos de una fecha")
@@ -11,8 +12,8 @@ const obtenerPronosticosDeUnPartido = (req, res) => {
 }
 
 const obtenerPronosticosDeOtroParticipanteDeUnaDeterminadaFecha = (req, res) => {
-    res.send("obtengo los pronosticos de otro participante segun la fecha")
-    console.log("obtengo los pronosticos de otro participante segun la fecha")
+    res.send(`obtengo los pronosticos de otro participante segun la fecha ${req.params.idfecha}`)
+    console.log(`obtengo los pronosticos de otro participante segun la fecha ${req.params.idfecha}`)
 }
 
 const obtenerResultadosDeOtroParticipante = (req, res) => {
@@ -22,6 +23,7 @@ const obtenerResultadosDeOtroParticipante = (req, res) => {
 
 const subirPronostico = (req, res) => {
     console.log("subi pronostico/s")
+    console.log(req.body)
     res.send("subo el pronostico de un partido")
 }
 
