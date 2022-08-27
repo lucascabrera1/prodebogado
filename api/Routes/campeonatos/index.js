@@ -1,8 +1,7 @@
-const express = require ('express')
-const controller = require('./controller')
+import { Router } from 'express'
+import controller from './controller.js'
 
-const router = express()
+const router = Router()
 
-router.route('/').get()
-
-module.exports = router
+router.route('/campeonatos').get(controller.listarcampeonatos)
+export default router

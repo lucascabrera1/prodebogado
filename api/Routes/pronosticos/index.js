@@ -1,7 +1,7 @@
-const express = require('express')
-const controller = require('./controller')
+import { Router } from 'express'
+import controller from './controller.js'
 
-const router = express.Router()
+const router = Router()
 
 router.route('/mispronosticos').get(controller.obtenerMisPronosticos)
 router.route('/pronosticos').post(controller.subirPronostico)
@@ -10,4 +10,4 @@ router.route('/mispronosticos/:idfecha').get(controller.obtenerPronosticosDeOtro
 router.route('/pronosticospartido/:idpartido').get(controller.obtenerResultadosDeOtroParticipante)
 router.route('/pronosticosparticipante/:idparticipante').get(controller.obtenerPronosticosDeUnPartido)
 
-module.exports =  router
+export default  router

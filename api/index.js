@@ -1,14 +1,14 @@
 //requires
-const express = require ('express')
+import express, { json } from 'express'
 const router = express()
-const path = require ('path')
-const morgan = require('morgan')
+import { resolve } from 'path'
+import morgan from 'morgan'
 
 //uses
-router.use(express.json())
+router.use(json())
 router.use(logger)
 router.use(morgan('dev'))
-router.use(express.static('public'))
+router.use('public')
 
 
 //settings
@@ -46,11 +46,11 @@ router.get('/ejs', (req, res) => {
 })
 
 router.get('/empresa', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "empresa.html"))
+    res.sendFile(resolve(__dirname, "empresa.html"))
 })
 
 router.get('/contacto', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "contacto.html"))
+    res.sendFile(resolve(__dirname, "contacto.html"))
 })
 
 
@@ -58,7 +58,7 @@ router.get('/contacto', (req, res) => {
 
 router.post('/register', (req, res) => {
     console.log(req.body)
-    res.send(path.resolve(__dirname, "contacto.html"))
+    res.send(resolve(__dirname, "contacto.html"))
     res.end("usuario registrado")
 }) //se registra
 

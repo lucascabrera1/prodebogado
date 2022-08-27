@@ -1,13 +1,15 @@
-const express = require('express')
+import { Router } from 'express';
 
-const campeonatos = require('./campeonatos');
-const descensos = require('./descensos');
-const pronosticos = require('./pronosticos');
+import campeonatos from './campeonatos/index.js';
+import descensos from './descensos/index.js';
+import pronosticos from './pronosticos/index.js';
+import copa from './copa/index.js'
 
-const router = express.Router()
+const router = Router()
 
 router.use('/campeonatos', campeonatos)
 router.use('/descensos', descensos)
 router.use('/pronosticos', pronosticos)
+router.use('/', copa)
 
-module.exports = router
+export default router

@@ -3,4 +3,4 @@ const listardescensos = (req, res) => {
     console.log("descensos")
 }
 
-module.exports = {listardescensos}
+export default {listardescensos}
