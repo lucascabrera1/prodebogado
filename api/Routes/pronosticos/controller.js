@@ -1,6 +1,7 @@
 //logica que va a reaccionar a la request
 import Pronostico from "../../Models/Pronostico"
 
+
 const obtenerMisPronosticos = (req, res) => {
     res.send("obtengo mis pronosticos de una fecha")
     console.log("obtengo mis pronosticos de una fecha")
@@ -13,7 +14,11 @@ const obtenerPronosticosDeUnPartido = (req, res) => {
 
 const obtenerPronosticosDeOtroParticipanteDeUnaDeterminadaFecha = (req, res) => {
     res.send(`obtengo los pronosticos de otro participante segun la fecha ${req.params.idfecha}`)
+<<<<<<< HEAD
     console.log("obtengo los pronosticos de otro participante segun la fecha")
+=======
+    console.log(`obtengo los pronosticos de otro participante segun la fecha ${req.params.idfecha}`)
+>>>>>>> 263ac45f14296bd75f92b2dab7b6d4c29054e583
 }
 
 const obtenerResultadosDeOtroParticipante = (req, res) => {
@@ -22,10 +27,16 @@ const obtenerResultadosDeOtroParticipante = (req, res) => {
 }
 
 const subirPronostico = (req, res) => {
+<<<<<<< HEAD
     console.log(req.body)
     const pronostico = await pronostico.save()
     //res.send("subo el pronostico de un partido")
     return res.send(pronostico)
+=======
+    console.log("subi pronostico/s")
+    console.log(req.body)
+    res.send("subo el pronostico de un partido")
+>>>>>>> 263ac45f14296bd75f92b2dab7b6d4c29054e583
 }
 
 const modificarPronostico = (req, res) => {
