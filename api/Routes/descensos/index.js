@@ -3,7 +3,8 @@ import controller from './controller.js'
 
 const router = Router()
 
-router.route('/descensos').get(controller.listardescensos)
-router.route('/cargardescensos').post(controller.cargardescensos)
+router.route('/vertodos').get(controller.listardescensos)
+router.route('/agregar').post(controller.AgregarDescenso)
+router.route('/agregardescendido').post(controller.AgregarDescendido)
 
 export default router

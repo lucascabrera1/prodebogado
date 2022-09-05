@@ -1,4 +1,3 @@
-import connection from "./connection.js";
 import Pronostico from "./Models/Pronostico.js";
 
 async function GuardarPronostico (){

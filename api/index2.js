@@ -1,5 +1,8 @@
 import express from 'express';
 import router from './Routes/index.js';
+import {connect} from './connection.js'
+
+connect()
 
 const app = express()
 const port = 4500
