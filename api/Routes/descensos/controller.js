@@ -21,11 +21,11 @@ const AgregarDescenso = async (req, res) => {
 }
 
 const AgregarDescendido = (req, res) => {
+    /*      -----primer intento-----
+
     let body = req.body
     let error;
     console.log("req: " + req)
-    console.log("req.body: " + req.body)
-    console.log("body: "  + body)
     let descendidos = JSON.parse(body.descendidos)
     console.log(descendidos)
     descendidos.array.foreach(element => {
@@ -52,7 +52,30 @@ const AgregarDescendido = (req, res) => {
             success : true,
             message : "se agregaron los descensos de forma correcta"
         })
-    }
+    }*/
+    console.log(req.body)
+    Descenso.updateOne({_id : req.body._id}, {
+        $push : {
+            "descendidos" : {
+                nombrereal : req.body.nombrereal,
+                documento : req.body.documento
+            }
+        }
+    },
+    function (error){
+        if (error) {
+            return res.json ({
+                sucess : false,
+                msj: "no se pudo agregar",
+                error : (error),
+            });
+        } else {
+            return res.json({
+                sucess : true,
+                msj : "se agrego correctamente"
+            })
+        }
+    })
 }
 
 export default {listardescensos, AgregarDescenso, AgregarDescendido}

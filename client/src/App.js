@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
+function HelloWorld () {
+  return (
+    <h2>Hello World </h2>
+  )
+}
+
 function App() {
   return (
     <div className="App">
@@ -9,6 +15,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <div>Mi funcion : <HelloWorld/></div>
+        <HelloWorld></HelloWorld>
         <a
           className="App-link"
           href="https://reactjs.org"

@@ -1,0 +1,22 @@
+//inserto dos descendidos en el descenso del 2017, con el id objectid
+db.descensos.update({ 
+    "_id" : ObjectId("631916959a622cfcabfc1178")
+}, 
+{
+    $addToSet : 
+    {"descendidos" : 
+        {
+            $each : [
+                    {
+                        "nombrereal" : "Matias Gamboa", 
+                        "documento" : 23324234
+                    }, 
+                    {
+                        "nombrereal" : "Julian Ribeca", 
+                        "documento" : 2343243245
+                    }
+                ]
+            }
+        }
+    }
+)
