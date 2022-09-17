@@ -1,0 +1,19 @@
+.card {
+    background-color: #202121; 
+    color: #fff; 
+    padding: 20px
+}
+
+.title {
+    font-weight : lighter
+}
+
+.tareapendiente{
+    background-color: red;
+    color: #fff;
+}
+
+.tareafinalizada {
+    background-color: green;
+    color: black;
+}

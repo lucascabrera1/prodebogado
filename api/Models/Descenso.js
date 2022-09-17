@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 
+const EsquemaDescendidos = new mongoose.Schema({
+    usuario : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required : true
+    }
+})
+
 const EsquemaDescenso = new mongoose.Schema({
     año : {
         type: Number,
@@ -8,17 +16,9 @@ const EsquemaDescenso = new mongoose.Schema({
     }, 
     
     descendidos : [{
-        nombrereal : {
-            type: String,
-            unique : true,
-            required: true
-        },
-
-        documento : {
-            type : Number,
-            unique: false,
-            required: false
-        },
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required : true
     }]
 })
 

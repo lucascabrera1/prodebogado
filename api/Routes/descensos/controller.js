@@ -1,8 +1,31 @@
 import Descenso from "../../Models/Descenso.js"
+import User from "../../Models/User.js";
 
-const listardescensos = (req, res) => {
-    res.send("obtengo la lista de descensos")
-    console.log("descensos")
+const listardescensos = async (req, res) => {
+    try {
+        const descensos = await Descenso.find({});
+        let descensosdevueltos = [];
+        console.log(descensos);
+        for (const elem of descensos) {
+            let descendidos = [];
+            for (const el of elem.descendidos) {
+                console.log(el);
+                let user = await User.findById(el);
+                console.log('user ' + user);
+                descendidos.push(user);
+            }
+            console.log(descendidos);
+            let newElem = {
+                "_id" : elem._id,
+                "año" : elem.año,
+                "descendidos" : descendidos
+            }
+            descensosdevueltos.push(newElem);
+        }
+        return res.json(descensosdevueltos);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
 }
 
 const AgregarDescenso = async (req, res) => {
@@ -56,10 +79,7 @@ const AgregarDescendido = (req, res) => {
     console.log(req.body)
     Descenso.updateOne({_id : req.body._id}, {
         $push : {
-            "descendidos" : {
-                nombrereal : req.body.nombrereal,
-                documento : req.body.documento
-            }
+            "descendidos" : [req.body.usuario]
         }
     },
     function (error){
