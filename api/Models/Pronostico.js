@@ -1,28 +1,14 @@
 import mongoose from "mongoose";
 
 const pronesquema = new mongoose.Schema ({
-    local: {
-        nombre: {
-            type : String,
-            required : true
-        },
-        goles: {
-            type: Number,
-            required: true
-        }
-    },
-    visitante: {
-        nombre: {
-            type : String,
-            required : true
-        },
-        goles: {
-            type: Number,
-            required: true
-        }
-    },
+
+    partidospronosticado : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "PartidoPronosticado",
+        required: true
+    }],
     fecha : {
-        type : Number,
+        type : mongoose.Schema.Types.ObjectId,
         ref : "Fecha",
         unique: true,
         required: true
@@ -44,4 +30,4 @@ const pronesquema = new mongoose.Schema ({
     }
 })
 
-export default mongoose.model('esquema', pronesquema)
+export default mongoose.model('Pronostico', pronesquema)
