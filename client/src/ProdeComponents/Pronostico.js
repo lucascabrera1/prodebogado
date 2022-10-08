@@ -31,12 +31,12 @@ export function Pronostico ({local, visitante}) {
 
     return (
         <>
-            <h2>Pronostico del partido: {local} vs {visitante}</h2> <br/>
+            <h3>Pronostico del partido: {local} vs {visitante}</h3> <br/>
             <div className="App-header">
                 <div className="app">
                     <div className="divcounter">
                         <button onClick={ ()=> aumentarlocal()}>+1</button>
-                        <p>Goles del local ({local}) : {goleslocal}</p>
+                        <p>Goles de {local} : {goleslocal}</p>
                         <button onClick={() => decrementarlocal()}>-1</button>
                     </div>
                     <div className="divcounter">
@@ -44,7 +44,7 @@ export function Pronostico ({local, visitante}) {
                     </div>
                     <div className="divcounter">
                         <button onClick={()=> aumentarvisitante()}>+1</button>
-                        <p>Goles del visitante ({visitante}): {golesvisitante}</p>
+                        <p>Goles de {visitante}: {golesvisitante}</p>
                         <button onClick={()=> decrementarvisitante()}>-1</button> <br/>
                     </div>
                 </div>

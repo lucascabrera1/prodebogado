@@ -2,7 +2,7 @@ import {Schema, Model} from "mongoose";
 
 const partidoSchema = new Schema({
     local: {
-        nombre: {
+        equipo: {
             type : Schema.Types.ObjectId,
             ref: "Equipo",
             required : true
@@ -13,7 +13,7 @@ const partidoSchema = new Schema({
         }
     },
     visitante: {
-        nombre: {
+        equipo: {
             type : Schema.Types.ObjectId,
             ref: "Equipo",
             required : true

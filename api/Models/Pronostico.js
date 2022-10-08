@@ -17,16 +17,6 @@ const pronesquema = new mongoose.Schema ({
         type : mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true
-    },
-    campeonato: {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Campeonato",
-        required : true
-    },
-    copa : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref : "Copa",
-        required: true
     }
 })
 

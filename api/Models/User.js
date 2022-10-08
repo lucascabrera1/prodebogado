@@ -14,6 +14,14 @@ const esquemausuario = new mongoose.Schema({
         type: String,
         required: true
     },
+    password: {
+        type: String,
+        required : true
+    },
+    administrador: {
+        type: boolean,
+        required: true
+    },
     documento : {
         type : Number,
         unique: true,

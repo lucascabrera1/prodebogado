@@ -20,3 +20,71 @@ db.descensos.update({
         }
     }
 )
+
+// insertar equipos
+db.equipos.insertMany([
+    {"nombre": "Ecuador"},
+    {"nombre": "Senegal"},
+    {"nombre": "Paises Bajos"},
+    {"nombre": "Inglaterra"},
+    {"nombre": "Irán"},
+    {"nombre": "Gales"},
+    {"nombre": "Estados Unidos"},
+    {"nombre": "Argentina"},
+    {"nombre": "Arabia Saudita"},
+    {"nombre": "México"},
+    {"nombre": "Polonia"},
+    {"nombre": "Francia"},
+    {"nombre": "Australia"},
+    {"nombre": "Dinamarca"},
+    {"nombre": "Túnez"},
+    {"nombre": "España"},
+    {"nombre": "Costa Rica"},
+    {"nombre": "Japón"},
+    {"nombre": "Alemania"},
+    {"nombre": "Bélgica"},
+    {"nombre": "Canadá"},
+    {"nombre": "Marruecos"},
+    {"nombre": "Croacia"},
+    {"nombre": "Brasil"},
+    {"nombre": "Serbia y Montenegro"},
+    {"nombre": "Suiza"},
+    {"nombre": "Camerún"},
+    {"nombre": "Portugal"},
+    {"nombre": "Ghana"},
+    {"nombre": "Uruguay"},
+    {"nombre": "Corea del Sur"}
+])
+
+
+
+//insertar grupos
+db.grupos.insertMany([
+    {"letra": "A"},
+    {"letra": "B"},
+    {"letra": "C"},
+    {"letra": "D"},
+    {"letra": "E"},
+    {"letra": "F"},
+    {"letra": "G"},
+    {"letra": "H"}
+])
+
+//asociar equipos a los grupos
+db.grupos.update({ 
+    "_id" : ObjectId("634004d56df784f7e49c7c18")
+}, 
+{
+    $addToSet : 
+    {"equipos" : 
+        {
+            $each : [
+                    { "_id" : ObjectId("634003747e50ae0b9fc84455")},
+                    { "_id" : ObjectId("6340031e6df784f7e49c7bf9")},
+                    { "_id" : ObjectId("6340031e6df784f7e49c7bfa")},
+                    { "_id" : ObjectId("6340031e6df784f7e49c7bfb")},
+                ]
+            }
+        }
+    }
+)

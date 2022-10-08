@@ -8,9 +8,9 @@ const equipoSchema = new mongoose.Schema({
     },
     localidad : {
         type: String,
-        required: true,
+        required: false,
         unique: false
     }
 })
 
-export default mongoose.Model('Equipo', equipoSchema)
+export default mongoose.model('Equipo', equipoSchema)

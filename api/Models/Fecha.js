@@ -6,10 +6,10 @@ const fechaSchema = new mongoose.Schema ({
         required : true
     },
     partidos: [{
-        type: mongoose.Schema.Types.Schema,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Partido",
         required: true
     }]
 })
 
-export default mongoose.model('fecha', fechaSchema)
+export default mongoose.model('Fecha', fechaSchema)

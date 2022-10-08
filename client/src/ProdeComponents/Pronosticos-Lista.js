@@ -3,13 +3,14 @@ import { pronosticos as data } from "./Pronosticos-data.js";
 
 console.log(data)
 
-function ListarPronosticos () {
+function ListarPronosticos ({local}) {
     const [pronosticos, setPronosticos] = useState([])
     useEffect(() => {
         setPronosticos(data)
     }, [])
     
     return (<div>
+        <p>{local}</p>
             {
                 pronosticos.map(pron => <div key={pron._id} style ={{backgroundColor : "green"}}>
                     <h2>{pron.local.nombre} vs {pron.visitante.nombre}</h2>
@@ -19,4 +20,4 @@ function ListarPronosticos () {
     </div>)
 }
 
-export default ListarPronosticos
+export  {ListarPronosticos}
