@@ -12,5 +12,5 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-    name : "Javier Barbuscia"
+    name : ""
 }

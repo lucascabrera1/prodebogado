@@ -19,7 +19,7 @@ const esquemausuario = new mongoose.Schema({
         required : true
     },
     administrador: {
-        type: boolean,
+        type: Boolean,
         required: true
     },
     documento : {

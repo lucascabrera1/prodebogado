@@ -38,6 +38,15 @@
   image-resolution: 20px;
 }
 
+.tablaposiciones {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
 
 .club {
   width: 70px;

@@ -1,6 +1,7 @@
 import { Pronostico } from "../Pronostico";
 function ProdeForm () {
     return (<div>
+        <h1>Bienvenidos a la página principal de Prode Bogado</h1>
         <div>
             <h2>Grupo A</h2>
             <Pronostico local="Qatar" visitante="Ecuador"/>
@@ -73,6 +74,7 @@ function ProdeForm () {
             <Pronostico local="Corea" visitante="Portugal"/>
             <Pronostico local="Ghana" visitante="Uruguay"/>
         </div>
+        <button>Enviar mis pronósticos</button>
     </div>)
 }
 export {ProdeForm}
