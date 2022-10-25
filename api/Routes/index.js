@@ -7,6 +7,7 @@ import copa from './copa/index.js'
 import usuario from './Users/index.js'
 import fecha from './fechas/index.js';
 import equipos from './equipos/index.js';
+import partidos from './partidos/index.js'
 
 const router = Router()
 
@@ -17,5 +18,6 @@ router.use('/copas', copa)
 router.use('/usuarios', usuario)
 router.use('/fechas', fecha)
 router.use('/equipos', equipos)
+router.use('/partidos', partidos)
 
 export default router

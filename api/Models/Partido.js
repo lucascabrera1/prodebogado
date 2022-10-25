@@ -1,4 +1,4 @@
-import {Schema, Model} from "mongoose";
+import {Schema, model} from "mongoose";
 
 const partidoSchema = new Schema({
     local: {
@@ -9,7 +9,7 @@ const partidoSchema = new Schema({
         },
         goles: {
             type: Number,
-            required: true
+            required: false
         }
     },
     visitante: {
@@ -20,9 +20,9 @@ const partidoSchema = new Schema({
         },
         goles: {
             type: Number,
-            required: true
+            required: false
         }
     }
 })
 
-export default Model('Partido', partidoSchema)
+export default model('Partido', partidoSchema)

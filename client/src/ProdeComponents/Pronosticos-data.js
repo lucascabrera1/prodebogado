@@ -48,3 +48,5 @@ export const pronosticos = [
         }
     }
 ]
+//asi serían los 14 partidos de cada fecha, el proximo torneo del futbol argentino
+//nunca se sabe cuántos equipos lo integrarán

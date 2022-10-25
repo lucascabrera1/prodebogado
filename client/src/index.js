@@ -18,12 +18,14 @@ root.render(
 
 //root.render(<App/>)
 
-console.log(process.env.REACT_APP_AUTH0_DOMAIN,
-   process.env.REACT_APP_AUTH0_CLIENT_ID)
+const domain = process.env.REACT_APP_AUTH0_DOMAIN
+const client_id = process.env.REACT_APP_AUTH0_CLIENT_ID
+
+console.log(domain, client_id)
 
 root.render(
   <React.StrictMode>
-    <Auth0Provider>
+    <Auth0Provider domain={domain} clientId={client_id} redirectUri={window.location.origin}>
       <App/>
     </Auth0Provider>
   </React.StrictMode>

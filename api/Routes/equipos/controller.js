@@ -16,7 +16,8 @@ const ListarEquipos = async (req, res) => {
         }
         return res.json(equiposdevueltos);
     } catch (error) {
-        return res.status(500).json({ message: error.message })
+        console.log("error.message: ")
+        return res.status(500).json({ message: error.message._message })
     }
 }
 

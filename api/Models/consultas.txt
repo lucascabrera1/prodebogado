@@ -23,6 +23,7 @@ db.descensos.update({
 
 // insertar equipos
 db.equipos.insertMany([
+    {"nombre": "Qatar"},
     {"nombre": "Ecuador"},
     {"nombre": "Senegal"},
     {"nombre": "Paises Bajos"},
@@ -88,3 +89,241 @@ db.grupos.update({
         }
     }
 )
+
+//equipos
+//grupo A
+{ "_id" : ObjectId("635044ff797d370a701d19ec"), "nombre" : "Qatar" }
+{ "_id" : ObjectId("635044ff797d370a701d19ed"), "nombre" : "Ecuador" }
+{ "_id" : ObjectId("635044ff797d370a701d19ee"), "nombre" : "Senegal" }
+{ "_id" : ObjectId("635044ff797d370a701d19ef"), "nombre" : "Paises Bajos" }
+//grupo B
+{ "_id" : ObjectId("635044ff797d370a701d19f0"), "nombre" : "Inglaterra" }
+{ "_id" : ObjectId("635044ff797d370a701d19f1"), "nombre" : "Irán" }
+{ "_id" : ObjectId("635044ff797d370a701d19f2"), "nombre" : "Gales" }
+{ "_id" : ObjectId("635044ff797d370a701d19f3"), "nombre" : "Estados Unidos" }
+//grupo C
+{ "_id" : ObjectId("635044ff797d370a701d19f4"), "nombre" : "Argentina" }
+{ "_id" : ObjectId("635044ff797d370a701d19f5"), "nombre" : "Arabia Saudita" }
+{ "_id" : ObjectId("635044ff797d370a701d19f6"), "nombre" : "México" }
+{ "_id" : ObjectId("635044ff797d370a701d19f7"), "nombre" : "Polonia" }
+//grupo D
+{ "_id" : ObjectId("635044ff797d370a701d19f8"), "nombre" : "Francia" }
+{ "_id" : ObjectId("635044ff797d370a701d19f9"), "nombre" : "Australia" }
+{ "_id" : ObjectId("635044ff797d370a701d19fa"), "nombre" : "Dinamarca" }
+{ "_id" : ObjectId("635044ff797d370a701d19fb"), "nombre" : "Túnez" }
+//grupo E
+{ "_id" : ObjectId("635044ff797d370a701d19fc"), "nombre" : "España" }
+{ "_id" : ObjectId("635044ff797d370a701d19fd"), "nombre" : "Costa Rica" }
+{ "_id" : ObjectId("635044ff797d370a701d19fe"), "nombre" : "Japón" }
+{ "_id" : ObjectId("635044ff797d370a701d19ff"), "nombre" : "Alemania" }
+//grupo F
+{ "_id" : ObjectId("635044ff797d370a701d1a00"), "nombre" : "Bélgica" }
+{ "_id" : ObjectId("635044ff797d370a701d1a01"), "nombre" : "Canadá" }
+{ "_id" : ObjectId("635044ff797d370a701d1a02"), "nombre" : "Marruecos" }
+{ "_id" : ObjectId("635044ff797d370a701d1a03"), "nombre" : "Croacia" }
+//grupo G
+{ "_id" : ObjectId("635044ff797d370a701d1a04"), "nombre" : "Brasil" }
+{ "_id" : ObjectId("635044ff797d370a701d1a05"), "nombre" : "Serbia y Montenegro"}
+{ "_id" : ObjectId("635044ff797d370a701d1a06"), "nombre" : "Suiza" }
+{ "_id" : ObjectId("635044ff797d370a701d1a07"), "nombre" : "Camerún" }
+//grupo H
+{ "_id" : ObjectId("635044ff797d370a701d1a08"), "nombre" : "Portugal" }
+{ "_id" : ObjectId("635044ff797d370a701d1a09"), "nombre" : "Ghana" }
+{ "_id" : ObjectId("635044ff797d370a701d1a0a"), "nombre" : "Uruguay" }
+{ "_id" : ObjectId("635044ff797d370a701d1a0b"), "nombre" : "Corea del Sur" }
+
+//para cargar partidos
+db.partidos.insertMany([
+    {
+        "local" : {"equipo" : "635044ff797d370a701d19ec", "goles" : ""},
+        "visitante" : {"equipo" : "635044ff797d370a701d19ed", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "635044ff797d370a701d19ee", "goles" : ""},
+        "visitante" : {"equipo" : "635044ff797d370a701d19ef", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "635044ff797d370a701d19ec", "goles" : ""},
+        "visitante" : {"equipo" : "635044ff797d370a701d19ee", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "635044ff797d370a701d19ef", "goles" : ""},
+        "visitante" : {"equipo" : "635044ff797d370a701d19ed", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "635044ff797d370a701d19ec", "goles" : ""},
+        "visitante" : {"equipo" : "635044ff797d370a701d19ef", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "635044ff797d370a701d19ee", "goles" : ""},
+        "visitante" : {"equipo" : "635044ff797d370a701d19ed", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+    {
+        "local" : {"equipo" : "", "goles" : ""},
+        "visitante" : {"equipo" : "", "goles": ""}
+    },
+])

@@ -1,8 +1,11 @@
+//este componente primero se usa para cargar los partidos de la fecha
+//despues de terminar el partido, el usuario o administrador carga el resultado real
+
 import React from "react";
 import {useState } from "react";
 import './App.css'
-//este componente va a la base de datos, recupera los partidos de la fecha para que el usuario realice el prode
-export function Pronostico ({local, visitante}) {
+
+export function CargarPartidos ({local, visitante}) {
     const [goleslocal, setGoleslocal] = useState(0)
     const [golesvisitante, setGolesvisitante] = useState(0)
 
@@ -31,11 +34,11 @@ export function Pronostico ({local, visitante}) {
 
     return (
         <>
-            <h3>Pronostico del partido: {local} vs {visitante}</h3> <br/>
+            <h3>Resultado real del partido: {local} vs {visitante}</h3> <br/>
             <div className="App-header">
                 <div className="app">
                     <div className="divcounter">
-                        <button onClick={ ()=> aumentarlocal()}>+1</button>
+                        <button onClick={()=> aumentarlocal()}>+1</button>
                         <p>Goles de {local} : {goleslocal}</p>
                         <button onClick={() => decrementarlocal()}>-1</button>
                     </div>
