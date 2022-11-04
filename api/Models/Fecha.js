@@ -5,6 +5,14 @@ const fechaSchema = new mongoose.Schema ({
         type: Number,
         required : true
     },
+    fechacomienzo: {
+        type: Date,
+        required: true
+    },
+    nombre: {
+        type: String,
+        required: true
+    },
     partidos: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Partido",

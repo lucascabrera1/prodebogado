@@ -10,9 +10,7 @@ const Profile = () => {
     <div>
         
         <img src={user.picture} alt={user.email}/>
-        <h1>Bienvenido {user.nickname} a la página principal de Prode Bogado</h1>
-        <h2>name: {user.name}</h2>
-        <p>{user.email}</p>
+        <h1>Bienvenido {user.name} a Prode Bogado</h1>
         <JSONpretty data={JSON.stringify(user)}/>
     </div>
   )

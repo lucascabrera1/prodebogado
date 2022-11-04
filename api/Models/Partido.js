@@ -10,7 +10,12 @@ const partidoSchema = new Schema({
         goles: {
             type: Number,
             required: false
+        },
+        definicionporpenales: {
+            type: Number,
+            required: false
         }
+
     },
     visitante: {
         equipo: {
@@ -19,6 +24,10 @@ const partidoSchema = new Schema({
             required : true
         },
         goles: {
+            type: Number,
+            required: false
+        },
+        definicionporpenales: {
             type: Number,
             required: false
         }

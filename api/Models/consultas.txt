@@ -327,3 +327,42 @@ db.partidos.insertMany([
         "visitante" : {"equipo" : "", "goles": ""}
     },
 ])
+
+db.fechas.insert({
+    "numero": 1,
+    "fechacomienzo": ISODate("2022-11-20T13:00:00-03:00"),
+    "nombre" : "Fase de grupos, ronda 1 de 3"
+})
+
+db.fechas.insertMany([
+    {
+        "numero": 2,
+        "fechacomienzo": ISODate("2022-11-25T10:00:00-03:00"),
+        "nombre" : "Fase de grupos, ronda 2 de 3"
+    },
+    {
+        "numero": 3,
+        "fechacomienzo": ISODate("2022-11-29T12:00:00-03:00"),
+        "nombre" : "Fase de grupos, ronda 3 de 3"
+    },
+    {
+        "numero": 4,
+        "fechacomienzo": ISODate("2022-12-03T12:00:00-03:00"),
+        "nombre" : "Octavos de final"
+    },
+    {
+        "numero": 5,
+        "fechacomienzo": ISODate("2022-12-09T16:00:00-03:00"),
+        "nombre" : "Cuartos de Final"
+    },
+    {
+        "numero": 6,
+        "fechacomienzo": ISODate("2022-12-13T16:00:00-03:00"),
+        "nombre" : "Semifinales"
+    },
+    {
+        "numero": 7,
+        "fechacomienzo": ISODate("2022-12-17T12:00:00-03:00"),
+        "nombre" : "Fase de grupos, ronda 1 de 3"
+    }
+])

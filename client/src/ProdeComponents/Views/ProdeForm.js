@@ -1,7 +1,36 @@
 import { Pronostico } from "../Pronostico";
+import { useState, useEffect } from "react";
+import {RecuperarFechas, RecuperarFecha} from '../../servicios/FechasService'
+
 function ProdeForm () {
+    const [idfecha, setIdFecha] = useState("")
+    const [fechas, setFechas] = useState([])
+    const [fecha, setFecha] = useState({})    
+
+    useEffect( () => {
+        RecuperarFechas(setFechas)
+        RecuperarFecha(idfecha, setFecha)
+    }, [])
+
+    console.log(fechas)
+    const optionFechas = fechas.map(f => (<option
+        value={f._id} 
+        key={f._id}
+    >{f.numero}</option>))
+
+
+
     return (<div>
-        <h1>Bienvenidos a la página principal de Prode Bogado</h1>
+        
+        <h1>Bienvenidos a la página del prode</h1>
+        fecha: <select id="fechaSelect"
+                onChange={(e) => {
+                    setIdFecha(e.target.value)
+                }}>
+                    {optionFechas}
+                </select>
+
+
         <div>
             <h2>Grupo A</h2>
             <Pronostico local="Qatar" visitante="Ecuador"/>

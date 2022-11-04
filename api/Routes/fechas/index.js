@@ -3,7 +3,9 @@ import controller from "./controller.js";
 
 const router = Router()
 
-router.post('/fecha', controller.AgregarFecha)
-router.get('/fecha:idfecha', controller.ListarFechas)
+router.post('/agregar', controller.AgregarFecha)
+router.get('/vertodas', controller.ListarFechas)
+router.get('/veruna/:id', controller.FindFechaById)
+
 
 export default router
