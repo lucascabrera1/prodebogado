@@ -5,33 +5,36 @@ import {RecuperarFechas, RecuperarFecha} from '../../servicios/FechasService'
 function ProdeForm () {
     const [idfecha, setIdFecha] = useState("")
     const [fechas, setFechas] = useState([])
-    const [fecha, setFecha] = useState({})    
+    const [fecha, setFecha] = useState({})
+    
 
     useEffect( () => {
+        console.log('entra al use effect')
         RecuperarFechas(setFechas)
         RecuperarFecha(idfecha, setFecha)
     }, [])
 
-    console.log(fechas)
     const optionFechas = fechas.map(f => (<option
         value={f._id} 
         key={f._id}
     >{f.numero}</option>))
 
-
+    
 
     return (<div>
-        
         <h1>Bienvenidos a la página del prode</h1>
         fecha: <select id="fechaSelect"
                 onChange={(e) => {
                     setIdFecha(e.target.value)
+                    setFecha(fechas.find(x=> x._id === idfecha))
+                    console.log('fecha')
+                    console.log(fecha)
                 }}>
                     {optionFechas}
                 </select>
+        
 
-
-        <div>
+        {/* <div>
             <h2>Grupo A</h2>
             <Pronostico local="Qatar" visitante="Ecuador"/>
             <Pronostico local="Senegal" visitante="Paises Bajos"/>
@@ -93,7 +96,7 @@ function ProdeForm () {
             <Pronostico local="Brasil" visitante="Suiza"/>
             <Pronostico local="Camerún" visitante="Brasil"/>
             <Pronostico local="Serbia y Montenegro" visitante="Suiza"/>
-        </div>
+        </div> */}
         <div>
             <h2>Grupo H</h2>
             <Pronostico local="Uruguay" visitante="Corea del Sur"/>

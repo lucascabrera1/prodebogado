@@ -366,3 +366,12 @@ db.fechas.insertMany([
         "nombre" : "Fase de grupos, ronda 1 de 3"
     }
 ])
+
+db.fechas.update({_id: ObjectId("635b0b92e7fed2f748d5f11f")}, {$pullAll: { partidos:[
+    ObjectId("635b10a9f2aa014b80bf313d"),
+    ObjectId("6364324f38331e5191cd5c4b"),
+    ObjectId("63643748765e32824749a6db"),
+    ObjectId("636437ae765e32824749a6e1"),
+    ObjectId("636441ab765e32824749a700"),
+    ObjectId("636441c1765e32824749a704")
+]}})

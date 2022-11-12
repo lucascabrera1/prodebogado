@@ -1,4 +1,5 @@
 import Fecha from '../../Models/Fecha.js'
+import Partido from '../../Models/Partido.js'
 
 const AgregarFecha = async (req, res) => {
     try {
@@ -22,7 +23,8 @@ const ListarFechas = async (req, res) => {
             let newElem = {
                 "_id" : elem._id,
                 "nombre" : elem.nombre,
-                "numero" : elem.numero
+                "numero" : elem.numero,
+                "fechacomienzo" : elem.fechacomienzo
             }
             fechasdevueltas.push(newElem)
         }
@@ -38,14 +40,29 @@ const ListarFechas = async (req, res) => {
 
 const FindFechaById = async (req, res) => {
     try {
-        const fecha = Fecha.findById(req.params.id)
+        console.log('llega al findfechabyid')
+        const fecha = await Fecha.findById(req.params.id)
+        console.log(fecha)
+        let partidos = []
+        for (const elem in fecha.partidos){
+            let newPartido = {
+                "_id": elem._id
+            }
+            partidos.push(newPartido)
+        }
         let newFecha = {
             "_id" : fecha._id,
             "nombre" : fecha.nombre,
-            "numero" : fecha.numero
+            "numero" : fecha.numero,
+            "fechacomienzo" : fecha.fechacomienzo,
+            "partidos" : fecha.partidos
         }
+        console.log('partidos de la fecha: ')
+        console.log(fecha.partidos)
         return res.json(newFecha)
     } catch (error) {
+        console.log('error: ')
+        console.error(error)
         return res.status(500).json({
             error : true,
             message : error
