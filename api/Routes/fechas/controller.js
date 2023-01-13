@@ -1,5 +1,6 @@
 import Fecha from '../../Models/Fecha.js'
 import Partido from '../../Models/Partido.js'
+import Equipo from '../../Models/Equipo.js'
 
 const AgregarFecha = async (req, res) => {
     try {
@@ -42,11 +43,29 @@ const FindFechaById = async (req, res) => {
     try {
         console.log('llega al findfechabyid')
         const fecha = await Fecha.findById(req.params.id)
-        console.log(fecha)
+        console.log('fecha.partidos')
+        console.log(fecha.partidos)
         let partidos = []
-        for (const elem in fecha.partidos){
+        for (let elem of fecha.partidos){
+            console.log('elem')
+            console.log(elem)
+            let objPartido = await Partido.findById(elem)
+            let objEquipoLocal = await Equipo.findById(objPartido.local.equipo.toString())
+            let objEquipoVisitante = await Equipo.findById(objPartido.visitante.equipo.toString())
             let newPartido = {
-                "_id": elem._id
+                "_id": elem.toString(),
+                "local" : {
+                    "equipo": {
+                        "_id" : objEquipoLocal._id,
+                        "nombre": objEquipoLocal.nombre
+                    }
+                },
+                "visitante" : {
+                    "equipo": {
+                        "_id" : objEquipoVisitante._id,
+                        "nombre": objEquipoVisitante.nombre
+                    }
+                }
             }
             partidos.push(newPartido)
         }
@@ -55,7 +74,8 @@ const FindFechaById = async (req, res) => {
             "nombre" : fecha.nombre,
             "numero" : fecha.numero,
             "fechacomienzo" : fecha.fechacomienzo,
-            "partidos" : fecha.partidos
+            "partidos" : partidos
+
         }
         console.log('partidos de la fecha: ')
         console.log(fecha.partidos)

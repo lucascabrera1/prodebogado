@@ -1,5 +1,6 @@
 //logica que va a reaccionar a la request
 import Pronostico from '../../Models/Pronostico.js'
+import PartidoPronosticado from '../../Models/PartidoPronosticado.js'
 
 const obtenerMisPronosticos = (req, res) => {
     res.send("obtengo mis pronosticos de una fecha")
@@ -23,7 +24,18 @@ const obtenerResultadosDeOtroParticipante = (req, res) => {
 
 const subirPronostico = async (req, res) => {
     try {
-        const pronostico = new Pronostico (req.body)
+        let partidospronosticados = []
+        for(const elem of req.body.partidospronosticado) {
+            const partidopronosticado = new PartidoPronosticado()
+            partidopronosticado.partido = elem.partido
+            partidopronosticado.resultado = elem.resultado
+            const partidopronosticadoguardado = await partidopronosticado.save()
+            partidospronosticados.push(partidopronosticadoguardado._id)
+        }
+        const pronostico = new Pronostico ()
+        pronostico.usuario = req.body.usuario
+        pronostico.fecha = req.body.fecha
+        pronostico.partidospronosticado = partidospronosticados
         console.log(pronostico)
         const pronosticoguardado = await pronostico.save()
         return res.json(pronosticoguardado)

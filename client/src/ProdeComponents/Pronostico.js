@@ -2,26 +2,40 @@ import React from "react";
 import {useState } from "react";
 import './App.css'
 //este componente va a la base de datos, recupera los partidos de la fecha para que el usuario realice el prode
-export function Pronostico ({local, visitante}) {
+export function Pronostico ({local, visitante, resultado}) {
     const [goleslocal, setGoleslocal] = useState(0)
     const [golesvisitante, setGolesvisitante] = useState(0)
 
+    function actualizarResultado(prop,goles) {
+        resultado[prop] = goles
+    }
+
     function aumentarlocal () {
-        setGoleslocal(goleslocal + 1)
+        let goles = goleslocal + 1
+        setGoleslocal(goles)
+        actualizarResultado("goleslocal",goles)
     }
 
     function decrementarlocal () {
-        if (goleslocal > 0) setGoleslocal(goleslocal - 1)
-        else (alert("la cantidad de goles no puede ser un numero negativo"))
+        if (goleslocal > 0) {
+            let goles = goleslocal - 1
+            setGoleslocal(goles)
+            actualizarResultado("goleslocal",goles)
+        } else (alert("la cantidad de goles no puede ser un numero negativo"))
     }
 
     function aumentarvisitante () {
-        setGolesvisitante(golesvisitante + 1)
+        let goles = golesvisitante + 1
+        setGolesvisitante(goles)
+        actualizarResultado("golesvisitante",goles)
     }
 
     function decrementarvisitante () {
-        if (golesvisitante > 0) setGolesvisitante(golesvisitante - 1)
-        else (alert("la cantidad de goles no puede ser un numero negativo"))
+        if (golesvisitante > 0) {
+            let goles = golesvisitante -1
+            setGolesvisitante(goles)
+            actualizarResultado("golesvisitante",goles)
+        } else (alert("la cantidad de goles no puede ser un numero negativo"))
     }
 
     function resetcounter (){

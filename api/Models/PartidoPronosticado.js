@@ -1,4 +1,4 @@
-import mongoose, { MongooseError } from "mongoose";
+import mongoose from "mongoose";
 
 const schemaPartidoPronosticado = new mongoose.Schema({
     partido : {
@@ -12,4 +12,4 @@ const schemaPartidoPronosticado = new mongoose.Schema({
     }
 })
 
-export default mongoose.Schema('PartidoPronosticado', schemaPartidoPronosticado)
+export default mongoose.model('PartidoPronosticado', schemaPartidoPronosticado)

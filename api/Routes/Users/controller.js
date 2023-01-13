@@ -61,4 +61,27 @@ const VerUno = async (req, res) => {
     }
 }
 
-export default {AltaUsuario, ListarTodos, VerUno}
+const BuscarUnoPorEmail = async (req, res) => {
+    console.log(req.params.email)
+    try {
+        const response = await Usuario.findOne({email : req.params.email})
+        console.log(req.params)
+        if (!response || response.length === 0){
+            return res.status(404).json({
+                error: true,
+                message : "User not Found"
+            })
+        }
+        return res.status(200).json({
+            data : response,
+            error: false
+        })
+    } catch (error) {
+        return res.status(400).json({
+            error: true,
+            message : error
+        })
+    }
+}
+
+export default {AltaUsuario, ListarTodos, VerUno, BuscarUnoPorEmail}

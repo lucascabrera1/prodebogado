@@ -1,26 +1,64 @@
 import { Pronostico } from "../Pronostico";
 import { useState, useEffect } from "react";
 import {RecuperarFechas, RecuperarFecha} from '../../servicios/FechasService'
+import {GuardarProde} from '../../servicios/ProdesService'
 
-function ProdeForm () {
+function ProdeForm ({idusuario}) {
+    console.log('id de usuario: ')
+    console.log(idusuario)
     const [idfecha, setIdFecha] = useState("")
-    const [fechas, setFechas] = useState([])
+    const [fechas, setFechas] = useState([]) 
     const [fecha, setFecha] = useState({})
-    
+    const [partidos, setPartidos] = useState([])
+
 
     useEffect( () => {
         console.log('entra al use effect')
         RecuperarFechas(setFechas)
-        RecuperarFecha(idfecha, setFecha)
     }, [])
+
+    useEffect(() => {
+        if (idfecha !== ""){
+            RecuperarFecha(idfecha, setFecha, setPartidos)
+        }
+    }, [idfecha])
+
+    const opVacio = (<option value="" key="">Seleccione</option>)
 
     const optionFechas = fechas.map(f => (<option
         value={f._id} 
         key={f._id}
     >{f.numero}</option>))
 
-    
+    let optionsFechas = [opVacio]
+    optionsFechas = optionsFechas.concat(optionFechas)
 
+    let partidosapronosticar = <div>Seleccione una fecha</div>
+    if (partidos.length>0) {
+        partidosapronosticar = partidos.map((elem, index) => {
+            elem.resultado = {
+                goleslocal : 0,
+                golesvisitante : 0
+            }
+            return <Pronostico 
+                key={index} 
+                local={elem.local.equipo.nombre} 
+                resultado={elem.resultado}
+                visitante={elem.visitante.equipo.nombre} 
+            />
+        }) 
+    } else {
+        return <div>
+            <h2>No hay partidos todavia</h2>
+        </div>
+        
+    }
+
+    const enviarResultados = () => {
+        console.log(partidos)
+        GuardarProde(idusuario, idfecha, partidos.map((item) => {return {partido:item._id,resultado:item.resultado}}))
+    }
+    
     return (<div>
         <h1>Bienvenidos a la página del prode</h1>
         fecha: <select id="fechaSelect"
@@ -30,64 +68,9 @@ function ProdeForm () {
                     console.log('fecha')
                     console.log(fecha)
                 }}>
-                    {optionFechas}
+                    {optionsFechas}
                 </select>
-        
-
-        {/* <div>
-            <h2>Grupo A</h2>
-            <Pronostico local="Qatar" visitante="Ecuador"/>
-            <Pronostico local="Senegal" visitante="Paises Bajos"/>
-            <Pronostico local="Qatar" visitante="Senegal"/>
-            <Pronostico local="Países Bajos" visitante="Ecuador"/>
-            <Pronostico local="Paises Bajos" visitante="Qatar"/>
-            <Pronostico local="Ecuador" visitante="Senegal"/>
-        </div>
-        <div>
-            <h2>Grupo B</h2>
-            <Pronostico local="Inglaterra" visitante="Irán"/>
-            <Pronostico local="Estados Unidos" visitante="Gales"/>
-            <Pronostico local="Gales" visitante="Irán"/>
-            <Pronostico local="Inglaterra" visitante="Estados Unidos"/>
-            <Pronostico local="Gales" visitante="Inglaterra"/>
-            <Pronostico local="Irán" visitante="Estados Unidos"/>
-        </div>
-        <div>
-            <h2>Grupo C</h2>
-            <Pronostico local="Argentina" visitante="Arabia Saudita"/>
-            <Pronostico local="México" visitante="Polonia"/>
-            <Pronostico local="Polonia" visitante="Arabia Saudita"/>
-            <Pronostico local="Argentina" visitante="México"/>
-            <Pronostico local="Polonia" visitante="Argentina"/>
-            <Pronostico local="Arabia Saudita" visitante="México"/>
-        </div>
-        <div>
-            <h2>Grupo D</h2>
-            <Pronostico local="Dinamarca" visitante="Túnez"/>
-            <Pronostico local="Francia" visitante="Australia"/>
-            <Pronostico local="Túnez" visitante="Australia"/>
-            <Pronostico local="Francia" visitante="Dinamarca"/>
-            <Pronostico local="Túnez" visitante="Francia"/>
-            <Pronostico local="Australia" visitante="Dinamarca"/>
-        </div>
-        <div>
-            <h2>Grupo E</h2>
-            <Pronostico local="Alemania" visitante="Japón"/>
-            <Pronostico local="España" visitante="Costa Rica"/>
-            <Pronostico local="Japón" visitante="Costa Rica"/>
-            <Pronostico local="España" visitante="Alemania"/>
-            <Pronostico local="Japón" visitante="España"/>
-            <Pronostico local="Costa Rica" visitante="Alemania"/>
-        </div>
-        <div>
-            <h2>Grupo F</h2>
-            <Pronostico local="Marruecos" visitante="Croacia"/>
-            <Pronostico local="Bélgica" visitante="Canadá"/>
-            <Pronostico local="Bélgica" visitante="Marruecos"/>
-            <Pronostico local="Croacia" visitante="Canadá"/>
-            <Pronostico local="Croacia" visitante="Bélgica"/>
-            <Pronostico local="Canadá" visitante="Marruecos"/>
-        </div>
+        {/* 
         <div>
             <h2>Grupo G</h2>
             <Pronostico local="Suiza" visitante="Camerún"/>
@@ -98,15 +81,9 @@ function ProdeForm () {
             <Pronostico local="Serbia y Montenegro" visitante="Suiza"/>
         </div> */}
         <div>
-            <h2>Grupo H</h2>
-            <Pronostico local="Uruguay" visitante="Corea del Sur"/>
-            <Pronostico local="Portugal" visitante="Ghana"/>
-            <Pronostico local="Corea del Sur" visitante="Ghana"/>
-            <Pronostico local="Portugal" visitante="Uruguay"/>
-            <Pronostico local="Corea" visitante="Portugal"/>
-            <Pronostico local="Ghana" visitante="Uruguay"/>
+            {partidosapronosticar}
         </div>
-        <button>Enviar mis pronósticos</button>
+        <button onClick={enviarResultados}>Enviar mis pronósticos</button>
     </div>)
 }
 export {ProdeForm}
