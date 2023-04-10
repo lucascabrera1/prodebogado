@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom'
-
+import {BrowserRouter as Router, Route, Routes, NavLink, Link} from 'react-router-dom'
+import './ProdeComponents/App.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./ProdeComponents/Views/Profile.js";
 import LoginButton from "./ProdeComponents/Views/LoginButton.js";
@@ -33,9 +33,14 @@ export default function App () {
     
     if (isLoading) return <h1>Cargando la Página, espere...</h1>
     return (<div>
+        
         {isAuthenticated ? <div><LogoutButton/></div> : <LoginButton/>}
-        <Profile/>
+        
         <Router>
+            <header className="App-header">
+                <Link to='/prode'>Mi Prode</Link>
+                <Link to="/historialdescensos">Historial de descensos</Link>
+            </header> 
             <NavLink/>
             <Routes>
                 {/* 
@@ -57,6 +62,7 @@ export default function App () {
                 <Route path="/partidos" element={<PartidosForm/>}></Route>
             </Routes>
         </Router>
+        <Profile/>
     </div>
     )
 }

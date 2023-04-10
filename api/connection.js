@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+//import env from './Database/.env'
 
 const uri = "mongodb://127.0.0.1:27017/prodebogado"
+
 const db = mongoose.connection
 
 export async function connect(){

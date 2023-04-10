@@ -1,6 +1,6 @@
-const dotenv = require('dotenv')
-dotenv.config()
+import { config } from 'dotenv'
+config()
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/prodebogado"
+const MONGODB_URI = process.env.MONGODB_URI_CLOUD || "mongodb://localhost/prodebogado"
 const PORT = process.env.PORT || 4000
-module.exports = {MONGODB_URI, PORT}
+export default {MONGODB_URI, PORT}

@@ -1,7 +1,7 @@
 const express = require ('express')
 const  Routes = require ('../Routes')
-const  { ConnectDB } = require ('./DB.js')
-const {PORT} = require('./config.js')
+const  { ConnectDB } = require('./DB.js').default
+const {PORT} = require('./config.js').default
 const morgan = require('morgan')
 
 const app = express()

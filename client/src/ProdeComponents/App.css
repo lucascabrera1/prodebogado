@@ -16,15 +16,33 @@
   }
 }
 
-.App-header {
+navbar ul {
+  padding: 0;
+}
+
+navbar ul li{
+  display: inline-block;
+  padding: 5px;
   background-color: #282c34;
+  color: antiquewhite;
+  border-radius: 5px 5px;
+  margin: 5px;
+  min-width: 100px;
+  text-align: center;
+  align-content: center;
+}
+
+.App-header {
+  background-color: #ff0000;
   min-height: 1px;
+  min-width: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  border: 100px;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 3vmin);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .App-link {
