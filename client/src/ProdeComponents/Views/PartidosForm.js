@@ -44,6 +44,10 @@ function PartidosForm () {
                     }
                 }
             }
+            if (local == visitante) {
+                alert("ningun equipo puede jugar contra sí mismo")
+                return false
+            }
             const res = await axios.post(url, partido)
             console.log(res)
             alert("partido grabado correctamente")

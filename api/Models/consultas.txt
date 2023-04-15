@@ -336,35 +336,85 @@ db.fechas.insert({
 
 db.fechas.insertMany([
     {
-        "numero": 2,
-        "fechacomienzo": ISODate("2022-11-25T10:00:00-03:00"),
-        "nombre" : "Fase de grupos, ronda 2 de 3"
+        "numero": 12,
+        "fechacomienzo": ISODate("2023-04-15T16:30:00-03:00"),
+        "nombre" : "fecha 12"
     },
     {
-        "numero": 3,
-        "fechacomienzo": ISODate("2022-11-29T12:00:00-03:00"),
-        "nombre" : "Fase de grupos, ronda 3 de 3"
+        "numero": 13,
+        "fechacomienzo": ISODate("2023-04-21T20:30:00-03:00"),
+        "nombre" : "fecha 13"
     },
     {
-        "numero": 4,
-        "fechacomienzo": ISODate("2022-12-03T12:00:00-03:00"),
-        "nombre" : "Octavos de final"
+        "numero": 14,
+        "fechacomienzo": ISODate("2023-04-27T20:00:00-03:00"),
+        "nombre" : "fecha 14"
     },
     {
-        "numero": 5,
-        "fechacomienzo": ISODate("2022-12-09T16:00:00-03:00"),
-        "nombre" : "Cuartos de Final"
+        "numero": 15,
+        "fechacomienzo": ISODate("2023-05-05T15:30:00-03:00"),
+        "nombre" : "fecha 15"
     },
     {
-        "numero": 6,
-        "fechacomienzo": ISODate("2022-12-13T16:00:00-03:00"),
-        "nombre" : "Semifinales"
+        "numero": 16,
+        "fechacomienzo": ISODate("2023-05-12T20:00:00-03:00"),
+        "nombre" : "fecha 16"
     },
     {
-        "numero": 7,
-        "fechacomienzo": ISODate("2022-12-17T12:00:00-03:00"),
-        "nombre" : "Fase de grupos, ronda 1 de 3"
-    }
+        "numero": 17,
+        "fechacomienzo": ISODate("2023-05-19T20:30:00-03:00"),
+        "nombre" : "fecha 17"
+    },
+    {
+        "numero": 18,
+        "fechacomienzo": ISODate("2023-05-26T16:30:00-03:00"),
+        "nombre" : "fecha 18"
+    },
+    {
+        "numero": 19,
+        "fechacomienzo": ISODate("2023-06-02T20:30:00-03:00"),
+        "nombre" : "fecha 19"
+    },
+    {
+        "numero": 20,
+        "fechacomienzo": ISODate("2023-06-09T16:30:00-03:00"),
+        "nombre" : "fecha 20"
+    },
+    {
+        "numero": 21,
+        "fechacomienzo": ISODate("2023-06-16T20:30:00-03:00"),
+        "nombre" : "fecha 21"
+    },
+    {
+        "numero": 22,
+        "fechacomienzo": ISODate("2023-06-23T16:30:00-03:00"),
+        "nombre" : "fecha 22"
+    },
+    {
+        "numero": 23,
+        "fechacomienzo": ISODate("2023-06-30T20:30:00-03:00"),
+        "nombre" : "fecha 23"
+    },
+    {
+        "numero": 24,
+        "fechacomienzo": ISODate("2023-07-07T16:30:00-03:00"),
+        "nombre" : "fecha 24"
+    },
+    {
+        "numero": 25,
+        "fechacomienzo": ISODate("2023-07-14T20:30:00-03:00"),
+        "nombre" : "fecha 25"
+    },
+    {
+        "numero": 26,
+        "fechacomienzo": ISODate("2023-07-21T16:30:00-03:00"),
+        "nombre" : "fecha 26"
+    },
+    {
+        "numero": 27,
+        "fechacomienzo": ISODate("2023-07-28T20:30:00-03:00"),
+        "nombre" : "fecha 27"
+    },
 ])
 
 db.fechas.update({_id: ObjectId("635b0b92e7fed2f748d5f11f")}, {$pullAll: { partidos:[
@@ -375,3 +425,34 @@ db.fechas.update({_id: ObjectId("635b0b92e7fed2f748d5f11f")}, {$pullAll: { parti
     ObjectId("636441ab765e32824749a700"),
     ObjectId("636441c1765e32824749a704")
 ]}})
+
+db.equipos.insertMany([
+    {"nombre": "River Plate", "localidad": "CABA"},
+    {"nombre": "Boca Juniors", "localidad": "CABA"},
+    {"nombre": "Racing Club", "localidad": "Avellaneda"},
+    {"nombre": "Independiente", "localidad": "Avellaneda"},
+    {"nombre": "San Lorenzo de Almagro", "localidad": "CABA"},
+    {"nombre": "Newell's Old Boys", "localidad": "Rosario"},
+    {"nombre": "Rosario Central", "localidad": "Rosario"},
+    {"nombre": "Unión", "localidad": "Santa Fe"},
+    {"nombre": "Colón", "localidad": "Santa Fe"},
+    {"nombre": "Banfield", "localidad": "Banfield"},
+    {"nombre": "Lanús", "localidad": "Lanús"},
+    {"nombre": "Estudiantes", "localidad": "La Plata"},
+    {"nombre": "Gimnasia y Esgrima", "localidad": "La Plata"},
+    {"nombre": "Talleres", "localidad": "Córdoba"},
+    {"nombre": "Belgrano", "localidad": "Córdoba"},
+    {"nombre": "Platense", "localidad": "Vicente López"},
+    {"nombre": "Defensa y Justicia", "localidad": "Florencio Varela"},
+    {"nombre": "Vélez Sarfield", "localidad": "CABA"},
+    {"nombre": "Argentinos Juniors", "localidad": "CABA"},
+    {"nombre": "Central Córdona", "localidad": "Santiago del Estero"},
+    {"nombre": "Instituto", "localidad": "Córdoba"},
+    {"nombre": "Godoy Cruz", "localidad": "Mendoza"},
+    {"nombre": "Sarmiento", "localidad": "Junín"},
+    {"nombre": "Huracán", "localidad": "CABA"},
+    {"nombre": "Tigre", "localidad": "Tigre"},
+    {"nombre": "Barracas Central", "localidad": "CABA"},
+    {"nombre": "Atlético Tucumán", "localidad": "Tucumán"},
+    {"nombre": "Arsenal", "localidad": "Sarandí"}
+])
