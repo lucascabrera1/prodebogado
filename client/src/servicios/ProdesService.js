@@ -17,3 +17,22 @@ export const GuardarProde = async (idusuario, idfecha, partidos) => {
         }
     }
 }
+
+export const RecuperarProde = async (idusuario, idfecha, partidos) => {
+
+    const url = `http://localhost:4500/pronosticos/mispronosticos/${idfecha}`
+    const res = await axios.get(url)
+    console.log(res.data.data)
+    return res.data.data
+    /* if (!res.status === 200) {
+        return {
+            exito : true,
+            msj: "prode recuperado exitosamente"
+        }
+    } else {
+        return {
+            exito : false,
+            msj: res.data.message
+        }
+    }*/
+} 

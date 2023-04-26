@@ -14,6 +14,7 @@ import Login from "./ProdeComponents/Pages/LoginPage.js";
 import { PartidosForm } from "./ProdeComponents/Views/PartidosForm.js";
 import { useEffect } from "react";
 import { RecuperarUsuarioPorEmail } from "./servicios/UsuariosService.js";
+import { MisProdes } from "./ProdeComponents/Views/MisProdesForm";
 
 export default function App () {
     const {user, isAuthenticated, isLoading} = useAuth0()
@@ -38,8 +39,10 @@ export default function App () {
         
         <Router>
             <header className="App-header">
-                <Link to='/prode'>Mi Prode</Link>
-                <Link to="/historialdescensos">Historial de descensos</Link>
+                <Link to='/prode'>Hacer Mi Prode</Link>
+                <Link to='/pronosticos/mispronosticos/:idfecha'>Ver mi Prode</Link>
+                <Link to='/historialdescensos'>Historial de descensos</Link>
+                <Link to='/partidos'>Partidos</Link>
             </header> 
             <NavLink/>
             <Routes>
@@ -60,6 +63,7 @@ export default function App () {
                 <Route path="/tablaposiciones" element={<TablaPosiciones/>}></Route>
                 <Route path="/login" element={<Login/>}></Route>
                 <Route path="/partidos" element={<PartidosForm/>}></Route>
+                <Route path="/pronosticos/mispronosticos/:idfecha" element={<MisProdes/>}></Route>
             </Routes>
         </Router>
         <Profile/>
