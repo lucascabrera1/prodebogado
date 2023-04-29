@@ -2,11 +2,7 @@
 import Pronostico from '../../Models/Pronostico.js'
 import PartidoPronosticado from '../../Models/PartidoPronosticado.js'
 import Partido from '../../Models/Partido.js'
-import Equipo from '../../Models/Partido.js'
-import { ObjectId as ID} from 'mongoose'
-
-
-
+import Equipo from '../../Models/Equipo.js'
 
 const RecuperarMiProde = async (req, res) => {
     try {
@@ -21,30 +17,22 @@ const RecuperarMiProde = async (req, res) => {
         let partidosfecha = []
 
         for (let elem of proderecuperado.partidospronosticado) {
-            console.log('elem: ' + elem)
-            let pp = await PartidoPronosticado.findOne({_id: elem})
             console.log('----------------------------comienzo---------------------------------------')
-            console.log('pp: ' + pp)
+            //console.log('elem: ' + elem.toString())
+            let pp = await PartidoPronosticado.findOne({_id: elem})
+            //console.log('pp: ' + pp)
             let partidoreal = await Partido.findOne({_id: pp.partido})
-            let local = await Equipo.findOne({
-                local:{
-                    equipo: {_id: partidoreal.local.equipo}
-                }
-            })
-            console.log('local: ' + local)
-            /* console.log('console log linea 24 local: ' + local)
+            //console.log('partido real: ' + partidoreal)
+            let local = await Equipo.findOne({_id: partidoreal.local.equipo})
+            let visitante = await Equipo.findOne({_id: partidoreal.visitante.equipo})
+            /*console.log('local: ' + local.nombre)
+            console.log('visitante: ' + visitante.nombre)
+            console.log('console log linea 24 local: ' + local)
             let equipolocal = await Equipo.findOne({_id: local})
             console.log('equipo local clg linea 26: ' + equipolocal)
-            
             let visitante = await Equipo.findOne({_id: partidoreal.visitante.equipo._id})
-            console.log('console log linea 29 visitante: ' + visitante) */
-
-
-            console.log('partido real: ' + partidoreal)
-            console.log('partidoreal.local.equipo._id: ' + (partidoreal.local.equipo._id))
-            console.log('partidoreal.visitante.equipo: ' + (partidoreal.visitante.equipo._id))
-            console.log('--------------------------------fin-----------------------------------')
-            /* console.log('partido real')
+            console.log('console log linea 29 visitante: ' + visitante)
+            console.log('partido real')
             console.log(partidoreal)
             console.log('fin partido real')
             console.log(pp)
@@ -53,16 +41,20 @@ const RecuperarMiProde = async (req, res) => {
             console.log('fin elem') */
             let newPP = {
                 "_id": elem,
-                "partido": pp,
-                "local": pp.resultado.goleslocal
+                "local": local.nombre,
+                "goleslocal": pp.resultado.goleslocal,
+                "visitante": visitante.nombre,
+                "golesvisitante": pp.resultado.golesvisitante
             }
-            /* console.log('newPP')
+           /*  console.log('newPP')
             console.log(newPP)
             console.log('fin newPP') */
-            partidosfecha.push(elem)
+            partidosfecha.push(newPP)
         }
-        /* console.log('partidos de la fecha')
-        console.log(partidosfecha) */
+        console.log('partidos de la fecha')
+        console.log(partidosfecha)
+        console.log('--------------------------------fin-----------------------------------')
+        
         res.json(proderecuperado)
         
     } catch (error) {

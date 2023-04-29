@@ -3,25 +3,40 @@ import { RecuperarProde } from "../../servicios/ProdesService";
 import { useState, useEffect } from "react";
 import {RecuperarFechas, RecuperarFecha} from '../../servicios/FechasService'
 
-export function MisProdes ({idusuario}) {
+export default function MisProdes ({idusuario}) {
     const [idfecha, setIdFecha] = useState("")
     const [fechas, setFechas] = useState([]) 
     const [fecha, setFecha] = useState("")
-    const [partidos, setPartidos] = useState([])
+    const [prode, setProde] = useState([])
 
-    useEffect( () => {
+    setIdFecha(Object("643657ae9af3f5b7bc2c105a"))
+
+    /* useEffect( () => {
         RecuperarFechas(setFechas)
-    }, [])
-    useEffect(() => {
+        console.log('fechas')
+        console.log(fechas)
+    }, []) */
+
+    
+
+    useEffect(({idfecha}) => {
+
         if (idfecha !== ""){
             console.log(fecha)
-            RecuperarFecha(idfecha, setFecha, setPartidos)
+            RecuperarFecha(idfecha, setFecha, setProde)
+            console.log('idfecha: ' + idfecha)
         }
     }, [idfecha])
 
+    const RecuperarProdeSeleccionado = idfecha => {
+        console.log(idfecha)
+        const proderecuperado = RecuperarProde(idfecha)
+        console.log(proderecuperado)
+    } 
+
     return <div>
         <h1>Algo</h1>
-        <RecuperarProde/>
-        <pre><Pronostico/></pre>
+        <option>option</option>
+        {RecuperarProdeSeleccionado(idfecha)}
     </div>
 }
